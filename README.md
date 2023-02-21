@@ -1,4 +1,4 @@
-</h1>Quick setup without airflow</h1>
+</h1> Quick setup without airflow </h1>
 
 Go to airflow dir nad run ``docker-compose up localstack`` (to run only localstack from docker-compose configuartion)</br>
 Then navigate to terraform dir and run ``terraform init``, then ``terraform apply`` and type in ``yes``</br>
@@ -13,7 +13,7 @@ You can also check one of the dynamodb tables by running this in docker containe
 ``aws dynamodb scan --table-name {table_name} --endpoint-url=http://localhost:4566`` </br>
 instead of ``{table_name}`` input my_raw_table, my_daily_metrics_table or my_monthly_metrics_table (anyway they should be empty cause lambda returns an error)
 
-</h2>Setting up Airflow (if you've got enough RAM, I don't :boar:)</h2>
+</h2> Setting up Airflow (if you've got enough RAM, I don't :boar:) </h2>
 
 Initiate airflow ``docker-compose airflow db init`` </br>
 Go to airflow folder and run ``docker-compose up`` to start all the containers </br>
