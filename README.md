@@ -24,6 +24,13 @@ P.S. I've haven't provided the necessary csv files </br>
 To split the 2gb csv into small files for each month navigate to split_data_script folder and run ``python split_data_by_months.py``</br>
 While in airflow, start the localstack_project dag, which runs a spark job and then uploads all the files to s3. (this dag is named dag.py in dags folder, just for reference)
 
+![Screenshot](station_statistics.png)
+
+![Screenshot](stations_departure_and_return_values.png)
+
+![Screenshot](2016-2020_stats.png)
+
+
 
 
 

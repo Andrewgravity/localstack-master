@@ -2,8 +2,6 @@ from airflow import DAG
 from airflow.decorators import task
 from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
-from airflow.sensors.filesystem import FileSensor
-from smart_file_sensor import SmartFileSensor
 import os
 from datetime import timedelta
 from airflow.utils.dates import days_ago
@@ -23,10 +21,6 @@ from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 config = configparser.ConfigParser()
 config.read('/opt/airflow/airflow.cfg')
 dag_path = config['core']['dags_folder']
-
-AWS_REGION= 'us-east-1'
-AWS_PROFILE='localstack'
-ENDPOINT_URL='http://localhost:4566/'
 
 all_raw_files = os.listdir(f'{dag_path}/data')
 all_metrics_files = os.listdir(f'{dag_path}/spark_job')

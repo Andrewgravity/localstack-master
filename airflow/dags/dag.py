@@ -2,7 +2,6 @@ from airflow import DAG
 from airflow.decorators import task
 from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
-from airflow.sensors.filesystem import FileSensor
 import os
 from datetime import timedelta
 from airflow.utils.dates import days_ago
