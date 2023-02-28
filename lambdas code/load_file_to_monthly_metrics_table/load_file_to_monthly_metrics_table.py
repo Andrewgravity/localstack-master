@@ -6,17 +6,22 @@ import logging
 import boto3
 import pandas as pd
 
+endpoint_url = os.getenv('ENDPOINT_URL')
+aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
+aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
+region_name = os.getenv('REGION_NAME')
+
 def lambda_handler(event, context):
     s3_resource = boto3.resource('s3',
-                                 endpoint_url='http://localhost:4566',
-                                 aws_access_key_id='test',
-                                 aws_secret_access_key='test',
-                                 region_name='us-east-1')
+                                 endpoint_url=endpoint_url,
+                                 aws_access_key_id=aws_access_key_id,
+                                 aws_secret_access_key=aws_secret_access_key,
+                                 region_name=region_name)
     dynamodb_resource = boto3.resource('dynamodb',
-                                       endpoint_url='http://localhost:4566',
-                                       aws_access_key_id='test',
-                                       aws_secret_access_key='test',
-                                       region_name='us-east-1')
+                                       endpoint_url=endpoint_url,
+                                       aws_access_key_id=aws_access_key_id,
+                                       aws_secret_access_key=aws_secret_access_key,
+                                       region_name=region_name)
 
     my_metrics_table = dynamodb_resource.Table('my_monthly_metrics_table')
     message = event['Records'][0]['Sns']['Message']

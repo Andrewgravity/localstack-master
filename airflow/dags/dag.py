@@ -20,12 +20,8 @@ from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 from airflow.providers.apache.spark.operators.spark_submit import SparkSubmitOperator
 
 config = configparser.ConfigParser()
-config.read('/opt/airflow/airflow.cfg')
+config.read('../airflow.cfg')
 dag_path = config['core']['dags_folder']
-
-AWS_REGION= 'us-east-1'
-AWS_PROFILE='localstack'
-ENDPOINT_URL='http://localhost:4566/'
 
 all_raw_files = os.listdir(f'{dag_path}/data')
 all_metrics_files = os.listdir(f'{dag_path}/spark_job')
